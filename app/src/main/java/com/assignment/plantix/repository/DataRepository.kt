@@ -26,13 +26,6 @@ class DataRepository() {
     }
 
 
-   /* suspend fun refreshVideos() {
-        withContext(Dispatchers.IO) {
-            val playlist = DevByteNetwork.devbytes.getPlaylist()
-            database.videoDao.insertAll(playlist.asDatabaseModel())
-        }
-    }*/
-
     fun getUserNames(): MutableLiveData<List<NamesModel>> {
 
         lateinit var jsonString: String
