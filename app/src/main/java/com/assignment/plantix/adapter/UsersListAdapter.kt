@@ -23,7 +23,9 @@ class UsersListAdapter(): ListAdapter<NamesModel, UsersListAdapter.ViewHolder>(U
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: NamesModel) {
-            binding.data = item
+            var nameItem: NamesModel =  item
+            nameItem.name = capitalize(nameItem.name)
+            binding.data = nameItem
             binding.executePendingBindings()
 
         }
@@ -36,6 +38,11 @@ class UsersListAdapter(): ListAdapter<NamesModel, UsersListAdapter.ViewHolder>(U
             }
         }
     }
+}
+
+fun capitalize(str: String?): String? {
+    return str!!.trim().split("\\s+".toRegex())
+        .joinToString(" ") { it.capitalize() }
 }
 
 class UsersListDiffCallback : DiffUtil.ItemCallback<NamesModel>() {
