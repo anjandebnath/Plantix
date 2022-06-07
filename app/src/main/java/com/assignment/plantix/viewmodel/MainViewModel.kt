@@ -8,6 +8,10 @@ import com.assignment.plantix.repository.DataRepository
 class MainViewModel : ViewModel {
 
     private var itemMutableList : MutableLiveData<List<NamesModel>>? = null
+
+    /**
+     * The data source this ViewModel will fetch results from.
+     */
     private var dataRepository: DataRepository? = null
 
 
